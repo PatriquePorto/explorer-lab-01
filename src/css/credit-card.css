@@ -5,7 +5,7 @@
   width: 36rem;
   height: 23rem;
   padding: 2rem;
-
+  border-radius: 17px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -4,21 +4,22 @@ import IMask from "imask"
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
-//const backGroundColor = document.querySelector(".cc")
+//const cardColor = document.querySelector(".cc")
 
 function setCardType(type) {   
     const colors = {
         visa: ["#436D99", "#2D57F2"],
         mastercard: ["#DF6F29", "#C69347"],
         hipercard: ["#ED0909","#ED0909"],
-        elo: ["#00A4E0", "#00A4E0"],
+        elo: ["#000000", "#000000"],
+        americanex: ["#006fcf", "#006fcf"],
         default: ["black", "gray"],
     
     }
 
     ccBgColor01.setAttribute("fill", colors[type] [0])
     ccBgColor02.setAttribute("fill", colors[type] [1])
-    //backGroundColor.style.backgroundColor = "#ED0909"
+   // cardColor.style.backgroundColor = ("#ED0909")
     ccLogo.setAttribute("src", `cc-${type}.svg`)
  }
 
@@ -76,11 +77,14 @@ const cardNumberPattern = {
         },
         {
             mask: "0000 0000 0000 0000",
-            regex: /^(6062\d{10}(\d{3})?)|(3841\d{15})$/,
+            regex: /^(6[2-8]\d{10}(\d{3})?)|(3841\d{15})$/,
             cardtype: "hipercard",
         },
-     
-       
+        {
+            mask: '0000 000000 00000',
+            regex: '^3[47]\\d{0,13}',
+            cardtype: 'americanex'
+        },       
         {
             mask: "0000 0000 0000 0000",
             cardtype: "default",
@@ -104,6 +108,7 @@ const cardNumberMasked = IMask(cardNumber, cardNumberPattern)
 const addButton = document.querySelector("#add-card")
 addButton.addEventListener("click", () =>  {
     alert("Cartão adicionado!")
+   
 })
 
 document.querySelector("form").addEventListener("submit", (event) => {
@@ -116,6 +121,7 @@ cardHolder.addEventListener("input", () => {
     const ccHolder = document.querySelector(".cc-holder .value")
 
     ccHolder.innerHTML = cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
+    
 })
 
 
@@ -151,4 +157,8 @@ expirationDateMasked.on("accept", () => {
 function updateExpirationDate(date) {
     const ccExpiration = document.querySelector(".cc-extra .value")
     ccExpiration.innerText = date.length === 0 ? "02/32" : date
+}
+
+function validadeInput () {
+    let validade 
 }
