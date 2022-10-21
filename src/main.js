@@ -4,17 +4,21 @@ import IMask from "imask"
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
+//const backGroundColor = document.querySelector(".cc")
 
 function setCardType(type) {   
     const colors = {
         visa: ["#436D99", "#2D57F2"],
         mastercard: ["#DF6F29", "#C69347"],
+        hipercard: ["#ED0909","#ED0909"],
+        elo: ["#00A4E0", "#00A4E0"],
         default: ["black", "gray"],
     
     }
 
     ccBgColor01.setAttribute("fill", colors[type] [0])
     ccBgColor02.setAttribute("fill", colors[type] [1])
+    //backGroundColor.style.backgroundColor = "#ED0909"
     ccLogo.setAttribute("src", `cc-${type}.svg`)
  }
 
@@ -53,6 +57,13 @@ const expirationDateMasked = IMask(expirationDate, expirationPattern)
 const cardNumber = document.querySelector("#card-number")
 const cardNumberPattern = {
      mask: [
+
+        {
+            mask: "0000 0000 0000 0000",
+            regex: /(4011|431274|438935|451416|457393|4576|457631|457632|504175|50(4175|6699|67[0-6][0-9]|677[0-8]|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9])|627780|636297|636368|636369|(6503[1-3])|(6500(3[5-9]|4[0-9]|5[0-1]))|(6504(0[5-9]|1[0-9]|2[0-9]|3[0-9]))|(650(48[5-9]|49[0-9]|50[0-9]|51[1-9]|52[0-9]|53[0-7]))|(6505(4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-8]))|(6507(0[0-9]|1[0-8]))|(6507(2[0-7]))|(650(90[1-9]|91[0-9]|920))|(6516(5[2-9]|6[0-9]|7[0-9]))|(6550(0[0-9]|1[1-9]))|(6550(2[1-9]|3[0-9]|4[0-9]|5[0-8]))|(506(699|77[0-8]|7[1-6][0-9))|(509([0-9][0-9][0-9])))/,
+            cardtype: "elo",
+        },
+      
         {
           mask: "0000 0000 0000 0000",
           regex: /^4\d{0,15}/,
@@ -63,6 +74,13 @@ const cardNumberPattern = {
             regex: /(^5[1-5]\d{0,2}|^22[2-9]\d|^2[3-7]\d{0,2})\d{0,12}/,
             cardtype: "mastercard",
         },
+        {
+            mask: "0000 0000 0000 0000",
+            regex: /^(6062\d{10}(\d{3})?)|(3841\d{15})$/,
+            cardtype: "hipercard",
+        },
+     
+       
         {
             mask: "0000 0000 0000 0000",
             cardtype: "default",
