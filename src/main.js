@@ -19,8 +19,8 @@ function setCardType(type) {
 
     ccBgColor01.setAttribute("fill", colors[type] [0])
     ccBgColor02.setAttribute("fill", colors[type] [1])
-   // cardColor.style.backgroundColor = ("#ED0909")
     ccLogo.setAttribute("src", `cc-${type}.svg`)
+     // cardColor.style.backgroundColor = ("#ED0909")
  }
 
  globalThis.setCardType = setCardType
@@ -121,7 +121,16 @@ cardHolder.addEventListener("input", () => {
     const ccHolder = document.querySelector(".cc-holder .value")
 
     ccHolder.innerHTML = cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
-    
+
+})
+
+//Function press number null
+const inputNumber = document.querySelector("#card-holder")
+inputNumber.addEventListener("keypress", (e) => {
+ const keyCode = (e.keyCode ? e.keyCode : e.wich)
+ if(keyCode > 47 && keyCode < 58) {
+    e.preventDefault()
+ }
 })
 
 
