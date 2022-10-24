@@ -124,14 +124,27 @@ cardHolder.addEventListener("input", () => {
 
 })
 
-//Function press number null
+
+
+//Function stop press number and caracter special
+
 const inputNumber = document.querySelector("#card-holder")
 inputNumber.addEventListener("keypress", (e) => {
- const keyCode = (e.keyCode ? e.keyCode : e.wich)
- if(keyCode > 47 && keyCode < 58) {
-    e.preventDefault()
- }
-})
+ 
+    if(!checkChar(e)) {
+        e.preventDefault()
+    }
+})  
+
+function checkChar(e) {
+    const char = String.fromCharCode(e.keyCode)
+    const pattern = '[a-zA-Z ]'
+
+    if(char.match(pattern)) {
+        return true
+    }
+}
+
 
 
 //Function dynamic security card code
