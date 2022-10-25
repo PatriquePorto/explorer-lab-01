@@ -74,7 +74,7 @@
     width: 200px;
     height: 180px;
     margin-top: 15px;
-    margin-left: -40px;
+    margin-left: -20px;
     
   }
 
@@ -82,14 +82,14 @@
     position: relative;
     display: flex;
     margin-left: 170px;
-    top: -21px;
+    top: -22px;
     font-size: 1.8rem;
   }
 
   dialog .cards-flag img {
     
-    width: 80px;
-    height: 80px;
+    width: 95px;
+    height: 95px;
   }
 
   dialog button {
