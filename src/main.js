@@ -1,26 +1,57 @@
 import "./css/index.css"
 import IMask from "imask"
 
-const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
-const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
+const button = document.querySelector('.btn-cards')
+const modal = document.querySelector('dialog')
+const buttonClose = document.querySelector("dialog button")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
-//const cardColor = document.querySelector(".cc")
+const cardColor = document.querySelector(".cc")
+
+//Show modal
+button.onclick = function() {
+    modal.showModal()
+}
+
+buttonClose.onclick = function() {
+    modal.close()
+}
+
 
 function setCardType(type) {   
     const colors = {
-        visa: ["#436D99", "#2D57F2"],
-        mastercard: ["#DF6F29", "#C69347"],
-        hipercard: ["#ED0909","#ED0909"],
-        elo: ["#000000", "#000000"],
-        americanex: ["#006fcf", "#006fcf"],
-        default: ["black", "gray"],
+       
+        
+        visa: {
+            cardColor: "url('./visa.svg')"
+        },
+        mastercard: {
+            cardColor: "url('./mastercard.svg')"
+        },
+        
+        elo: {
+            cardColor: "url('./elo.svg')"
+        },
+        hipercard: {
+            cardColor: "url('./hipercard.svg')"
+        },
+        americanex: {
+            cardColor: "url('./americanex.svg')"
+        }, 
+        neon: {
+            cardColor: "url('./neon.svg')"
+        },
+        nubank: {
+            cardColor: "url('./nubank.svg')"
+        },
+        default: {
+            cardColor: "url('./cc-bg.svg')"
+        },
     
     }
 
-    ccBgColor01.setAttribute("fill", colors[type] [0])
-    ccBgColor02.setAttribute("fill", colors[type] [1])
     ccLogo.setAttribute("src", `cc-${type}.svg`)
-     // cardColor.style.backgroundColor = ("#ED0909")
+     cardColor.style.backgroundImage = colors[type].cardColor
+     
  }
 
  globalThis.setCardType = setCardType
@@ -77,13 +108,24 @@ const cardNumberPattern = {
         },
         {
             mask: "0000 0000 0000 0000",
-            regex: /^(6[2-8]\d{10}(\d{3})?)|(3841\d{15})$/,
+            regex: /^(6\d{2}(\d{3})?)|(3841\d{15})$/,
             cardtype: "hipercard",
         },
         {
             mask: '0000 000000 00000',
             regex: '^3[47]\\d{0,13}',
             cardtype: 'americanex'
+        },
+        {
+            mask: "0000 0000 0000 0000",
+            regex:'^8[297]\\d{0,13}',
+            cardtype: "nubank",
+        },
+
+        {
+            mask: "0000 0000 0000 0000",
+            regex:'^9[575]\\d{0,13}',
+            cardtype: "neon",
         },       
         {
             mask: "0000 0000 0000 0000",
@@ -184,3 +226,5 @@ function updateExpirationDate(date) {
 function validadeInput () {
     let validade 
 }
+
+

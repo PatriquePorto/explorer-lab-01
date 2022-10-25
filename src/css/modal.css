@@ -1,0 +1,121 @@
+.container {
+    right: 950px;
+}
+
+.container button {
+  
+      align-items: center;
+      background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      display: flex;
+      font-size: 2rem;
+      justify-content: center;
+      line-height: 1em;
+      max-width: 100%;
+      min-width: 250px;
+      padding: 19px 24px;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      color: #000;
+    }
+    
+    @media (min-width: 768px) {
+      .button-63 {
+        font-size: 24px;
+        min-width: 196px;
+      }
+    }
+  
+  
+  dialog::backdrop{
+    background-color: rgb(0 0 0 / .5);
+  }
+  
+  dialog {
+    left: 27.4%;
+    top: 5%;
+    align-items: center;
+    overflow: auto;
+    resize: both;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+    width: 40%;
+    height: 45%;
+    background-color: rgb(3, 241, 110);
+    
+  }
+
+  dialog h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-top: 10px;
+    color: #000;
+  }
+
+
+  dialog .cards-flag {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+    margin-left: -40px;
+    
+  }
+
+  dialog .cards-flag span {
+    position: relative;
+    display: flex;
+    margin-left: 170px;
+    top: -21px;
+    font-size: 1.8rem;
+  }
+
+  dialog .cards-flag img {
+    
+    width: 80px;
+    height: 80px;
+  }
+
+  dialog button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 300px;
+    margin-top: 85px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-size: 2rem;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 150px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  
+  
